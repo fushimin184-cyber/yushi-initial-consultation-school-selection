@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-20",
+  "student_name": "XX同学",
+  "intake_short": "27fall",
+  "application_project": "硕士（27 Fall / 2027年秋季入学）",
+  "regions": ["香港"],
+  "background": {
+    "university": "某医科大学",
+    "major": "临床医学",
+    "study_length": "5年制",
+    "graduation_year": "2026",
+    "school_note": "",
+    "gpa": "加权平均分 82 / 100",
+    "language": "备考雅思（建议目标 6.5+）",
+    "target_major": "公共卫生 / 健康科学 / 生物医学",
+    "soft_background": "待补充"
+  },
+  "programs": [
+    {
+      "school_en": "Example University",
+      "school_abbr": "EU",
+      "school_zh": "示例大学",
+      "program_en": "Master of Public Health",
+      "program_zh": "公共卫生硕士",
+      "qs_rank": "XX",
+      "academic_requirement": "示例要求",
+      "ielts_requirement": "6.5",
+      "official_url": "https://example.com",
+      "highlight": true
+    }
+  ],
+  "timeline": {
+    "exploration": [
+      {"time": "全年", "task": "准备并完成雅思考试，目标6.5-7.0"},
+      {"time": "9-11月", "task": "补充与目标专业相关的科研/实习经历"}
+    ],
+    "materials": [
+      {"time": "9-10月", "task": "开始撰写 PS/CV"},
+      {"time": "9-11月", "task": "联系推荐人（建议2封）"},
+      {"time": "10-12月", "task": "开始投递"},
+      {"time": "11月-次年3月", "task": "面试+补充材料"}
+    ],
+    "pre_arrival": [
+      {"time": "1-4月", "task": "收到offer，确定入读意向"},
+      {"time": "4-7月", "task": "办理签证、购买机票、安排住宿"},
+      {"time": "8-9月", "task": "入学 🎉"}
+    ]
+  }
+}
