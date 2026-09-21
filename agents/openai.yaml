@@ -1,0 +1,6 @@
+interface:
+  display_name: "首咨选校方案"
+  short_description: "按YUSHI固定模板生成首咨选校规划Word"
+  default_prompt: "请根据我提供的学生背景，按首咨选校方案生成选校规划。"
+policy:
+  allow_implicit_invocation: true
