@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-import argparse, json, os
+import argparse, json
+if __package__:
+    from .delivery import save_delivery, output_path
+else:
+    from delivery import save_delivery, output_path
 from pathlib import Path
 from docx import Document
 from docx.shared import Cm, Pt, RGBColor
@@ -268,7 +272,7 @@ def add_timeline_table(doc, rows):
     return table
 
 
-def build(data, output_path, asset_dir):
+def build(data, output_path, asset_dir, pdf=False):
     doc = Document()
     sec = doc.sections[0]
     sec.page_width = Cm(21.0); sec.page_height = Cm(29.7)
@@ -345,18 +349,23 @@ def build(data, output_path, asset_dir):
     props.subject = 'YUSHI 首咨选校方案'
     props.author = 'YUSHI Consulting'
 
-    doc.save(output_path)
+    return save_delivery(doc, output_path, pdf=pdf)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--input', required=True)
     ap.add_argument('--output', required=True)
+    ap.add_argument('--pdf', action='store_true', help='Export and validate PDF only when requested')
     ap.add_argument('--asset-dir', default=str(Path(__file__).resolve().parents[1] / 'assets'))
     args = ap.parse_args()
+    output_path(args.output)
     with open(args.input, 'r', encoding='utf-8') as f:
         data=json.load(f)
-    build(data, args.output, args.asset_dir)
+    manifest = build(data, args.output, args.asset_dir, pdf=args.pdf)
+    print(json.dumps(manifest, ensure_ascii=False, indent=2))
+    if 'pdf_error' in manifest:
+        raise SystemExit(1)
 
 if __name__ == '__main__':
     main()
