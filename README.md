@@ -19,3 +19,15 @@
 - 在支持 Skills 的 ChatGPT/Codex 环境中安装或上传此 Skill 文件夹。
 - 在 Codex 仓库中，也可放在 `.agents/skills/yushi-initial-consultation-school-selection/` 下。
 - GitHub 主要用于版本管理与跨账号分发；具体安装方式取决于目标 ChatGPT 账号/工作区是否支持 Skills。
+
+## 已验证的交付
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/build_plan.py --input examples/sample-input.json --output outputs/Plan_20261008.docx
+# 仅明确要求 PDF 时（另需 LibreOffice/soffice）
+python scripts/build_plan.py --input examples/sample-input.json --output outputs/Plan_20261008.docx --pdf
+python -m unittest discover -s tests -v
+```
+
+脚本返回已验证 DOCX、同内容 ZIP（以及明确要求的 PDF）的实际绝对路径、大小和 SHA-256。详见 `references/delivery-workflow.md`。输入示例为虚构数据，测试输出不提交仓库。PDF 转换失败时退出非零，仍返回可用 DOCX/ZIP 与错误说明。本地完整性验证不保证 ChatGPT 预览或下载界面成功。
